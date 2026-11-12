@@ -1,0 +1,50 @@
+name: Pipeline CI/CD con Jest
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  pruebas-unitarias:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Descargar el código
+        uses: actions/checkout@v4
+
+      - name: 2. Preparar entorno Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 3. Instalar Jest
+        run: npm install
+
+      - name: 4. Ejecutar pruebas con Jest
+        run: npm test
+
+      # TODO (Estudiante): Agrega aquí el paso 5 para confirmar el estado
+
+  despliegue-web:
+    needs: pruebas-unitarias
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Descargar código validado
+        uses: actions/checkout@v4
+
+      - name: Empaquetar sitio web
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

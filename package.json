@@ -1,0 +1,11 @@
+{
+  "name": "practica-cicd-jest",
+  "version": "1.0.0",
+  "description": "Práctica de introducción a CI/CD con GitHub Actions y Jest",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
