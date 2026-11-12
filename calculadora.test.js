@@ -13,5 +13,9 @@ describe('Pruebas de la Calculadora', () => {
     expect(dividir(6,3)).toBe(2);
   });
 
+  test('dividir 6 / 0 debe devolver 2', () => {
+    expect(dividir(6,0)).toBe('Error: Division por 0');
+  });
+
   // TODO (Estudiante): Agrega aquí los dos tests para dividir(a, b)
 });
