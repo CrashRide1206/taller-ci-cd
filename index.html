@@ -57,6 +57,7 @@
     <div>
       <button onclick="calcular('sumar')">Sumar (+)</button>
       <button onclick="calcular('multiplicar')">Multiplicar (×)</button>
+      <button onclick="calcular('dividir')">Dividir (/)</button>
       <!-- TODO (Estudiante): Agrega aquí el botón para Dividir (÷) -->
     </div>
     <div id="resultado">Resultado: -</div>
@@ -73,9 +74,11 @@
         res = sumar(a, b);
       } else if (operacion === 'multiplicar') {
         res = multiplicar(a, b);
+      } else if (operacion == 'dividir'){
+        res = dividir(a,b);
       }
       // TODO (Estudiante): Agrega aquí la condición para 'dividir'
-
+      
       document.getElementById('resultado').innerText = `Resultado: ${res}`;
     }
   </script>
