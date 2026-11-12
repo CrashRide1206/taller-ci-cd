@@ -24,6 +24,9 @@ jobs:
       - name: 4. Ejecutar pruebas con Jest
         run: npm test
 
+      - name: 5. Imprimir Todo listo
+        run: echo "Todo Listo, fase de pruebas terminadas"
+
       # TODO (Estudiante): Agrega aquí el paso 5 para confirmar el estado
 
   despliegue-web:
