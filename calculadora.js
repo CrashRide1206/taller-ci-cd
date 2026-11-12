@@ -8,7 +8,7 @@ function multiplicar(a, b) {
 
 function dividir(a,b){
   if (b==0){
-    return "Error: División por cero";
+    return "Error: Division por cero";
   }
   else {
     return a/b;
