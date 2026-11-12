@@ -1,4 +1,4 @@
-const { sumar, multiplicar } = require('./calculadora');
+const { sumar, multiplicar, dividir } = require('./calculadora');
 
 describe('Pruebas de la Calculadora', () => {
   test('sumar 2 + 3 debe devolver 5', () => {
